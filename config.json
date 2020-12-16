@@ -1,0 +1,78 @@
+{
+    "tiles": [
+        {
+            "left": 0,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 512,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 1024,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 1536,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 2048,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 2560,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 3072,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        },
+        {
+            "left": 3584,
+            "top": 0,
+            "width": 512,
+            "height": 2048
+        }
+    ],
+    "qualities": {
+        "4k": {
+            "resolutions": "512x2048",
+            "bitrates": "3000k"
+        },
+        "1080p": {
+            "resolutions": "270x1080",
+            "bitrates": "1500k"
+        },
+        "720p": {
+            "resolutions": "180x720",
+            "bitrates": "600k"
+        }
+    },
+    "srd_values": [
+        "0,0,0,1,1,8,1",
+        "0,1,0,1,1,8,1",
+        "0,2,0,1,1,8,1",
+        "0,3,0,1,1,8,1",
+        "0,4,0,1,1,8,1",
+        "0,5,0,1,1,8,1",
+        "0,6,0,1,1,8,1",
+        "0,7,0,1,1,8,1"
+    ],
+    "keyint": 30,
+    "keyint_min": 30
+}

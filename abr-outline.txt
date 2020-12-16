@@ -1,0 +1,24 @@
+
+def assignBW(totBW, tiles, mpd):
+    # basic idea is to assign BW to tileframes of tiles in a sequential order until BW runs out, as it's defined by the SRD.
+
+    # assign lowest quality to each tile, then move up from there
+    QUALITIES = mpd.retrieve_qualities() # i.e. ('480p', '1080p', '4K')
+    qi = 0
+    VQ = 0.7 # for the sake of simplicity, VQ remains fixed at 0.7 for all tiles 
+    while totBW > 0:
+        for i in range(len(tiles)):
+            tile = tiles[i]
+            for j in range(len(tile.frames)):
+                # assign BW, breaking the loop once we've assigned to the minimum number of b-frames required
+                nonRefDown = getFloatNonRefProcessed(tile)
+                if nonRefDown >= VQ:
+                    # if this is true, we can stop downloading.
+                    break # this will be closing an HTTP connection in the actual code
+                totBW -= tile.frames[j].reqBW(QUALITIES[qi])
+        # once we have looked at all the tiles and tile-frames, repeat with next highest quality
+        qi += 1
+
+L. Xie, Z. Xu, Y. Ban, X. Zhang, and Z. Guo, “360probdash: Improvingqoe of 360 video streaming using tile-based http adaptive streaming,” inProceedings of the 25th ACM international conference on Multimedia,2017, pp. 315–323
+
+Z. Li, F. Gui, J. Geng, D. Li, Z. Wang, J. Li, Y. Cheng, and U. Zafar,“Dante: Enabling fov-aware adaptive fec coding for 360-degree videostreaming,”  inProceedings  of  the  2nd  Asia-Pacific  Workshop  onNetworking, pp. 15–21, 2018.
